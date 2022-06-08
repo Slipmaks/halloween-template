@@ -1,9 +1,9 @@
-/*==================== SHOW MENU ====================*/
+/* SHOW MENU*/
 const navMenu = document.getElementById("nav-menu"),
   navToggle = document.getElementById("nav-toggle"),
   navClose = document.getElementById("nav-close");
 
-/*===== MENU SHOW =====*/
+/*MENU SHOW */
 /* Validate if constant exists */
 if (navToggle) {
   navToggle.addEventListener("click", () => {
@@ -11,7 +11,7 @@ if (navToggle) {
   });
 }
 
-/*===== MENU HIDDEN =====*/
+/* MENU HIDDEN */
 /* Validate if constant exists */
 if (navClose) {
   navClose.addEventListener("click", () => {
@@ -19,7 +19,7 @@ if (navClose) {
   });
 }
 
-/*==================== REMOVE MENU MOBILE ====================*/
+/* REMOVE MENU MOBILE */
 const navLink = document.querySelectorAll(".nav__link");
 
 function linkAction() {
@@ -28,3 +28,22 @@ function linkAction() {
   navMenu.classList.remove("show-menu");
 }
 navLink.forEach((n) => n.addEventListener("click", linkAction));
+
+/*swiper*/
+let HomeSwiper = new Swiper(".home-swiper", {
+  spaceBetween: 30,
+  loop: "true",
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: "true",
+  },
+});
+
+/* change background header*/
+function scrollHeader() {
+  const header = document.getElementById("header");
+  // When the scroll is greater than 50 viewport height, add the scroll-header class to the header tag
+  if (this.scrollY >= 50) header.classList.add("scroll-header");
+  else header.classList.remove("scroll-header");
+}
+window.addEventListener("scroll", scrollHeader);
